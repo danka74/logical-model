@@ -21,3 +21,29 @@ jobs:
   # This workflow contains a single job called "build"
   call_build: 
     uses: WorldHealthOrganization/smart-base/.github/workflows/ghbuild.yml@v1
+
+  build_tables:
+    needs: call_build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          ref: 'gh-pages'
+
+      - name: Install rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
+      - name: Install rust cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install table tool
+        run: cargo install --git https://github.com/danka74/fhir-generate.git
+
+      - name: Build tables
+        run:  fhir-generate tables StructureDefinition*.json
+
+          
