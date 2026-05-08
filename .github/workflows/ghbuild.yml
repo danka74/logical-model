@@ -69,10 +69,11 @@ jobs:
           cargo build --release
           ./target/release/fhir-generate table ../StructureDefinition*.json
           pandoc *.md -o tables.docx
+          
       - name: Upload Word Document
         uses: actions/upload-artifact@v4
         with:
           name: tables-word-doc
-          path: tables.docx
+          path: fhir-generate/tables.docx
 
           
