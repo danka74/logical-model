@@ -27,8 +27,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-          ref: gh-pages
+        uses: actions/checkout@v6
+        with:
+          ref: 'gh-pages'
 
       - name: Install rust
         uses: actions-rs/toolchain@v1
