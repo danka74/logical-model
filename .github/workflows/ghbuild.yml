@@ -40,10 +40,28 @@ jobs:
       - name: Install rust cache
         uses: Swatinem/rust-cache@v2
 
-      - name: Install table tool
-        run: cargo install --git https://github.com/danka74/fhir-generate.git
+      - name: Checkout table tool
+        uses: actions/checkout@v6
+        with:
+          repository: danka74/easy-tree
+          path: easy-tree
+          
+      - name: Checkout table tool
+        uses: actions/checkout@v6
+        with:
+          repository: danka74/fhir-generate
+          path: fhir-generate
+          
+      - name: Cache external tool
+        uses: actions/cache@v4
+        with:
+          path: fhir-generate/target
+          key: ${{ runner.os }}-fhir-generate-${{ hashFiles('fhir-generate/Cargo.lock') }}
 
       - name: Build tables
-        run:  fhir-generate tables StructureDefinition*.json
+        run:  |
+          cd fhir-generate
+          cargo build --release
+          ./target/release/fhir-generate tables ../StructureDefinition*.json
 
           
