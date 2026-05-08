@@ -68,6 +68,6 @@ jobs:
           cd fhir-generate
           cargo build --release
           ./target/release/fhir-generate table ../StructureDefinition*.json
-          pandoc *.html -o tables.docx
+          pandoc *.md -o tables.docx
 
           
