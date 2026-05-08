@@ -40,6 +40,11 @@ jobs:
       - name: Install rust cache
         uses: Swatinem/rust-cache@v2
 
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
       - name: Checkout table tool
         uses: actions/checkout@v6
         with:
@@ -63,5 +68,6 @@ jobs:
           cd fhir-generate
           cargo build --release
           ./target/release/fhir-generate table ../StructureDefinition*.json
+          pandoc *.html -o tables.docx
 
           
