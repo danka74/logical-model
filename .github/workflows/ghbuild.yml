@@ -75,5 +75,6 @@ jobs:
         with:
           name: tables-word-doc
           path: fhir-generate/tables.docx
+          archive: false
 
           
