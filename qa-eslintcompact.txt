@@ -1,0 +1,8 @@
+EHDSModels
+=========================================
+
+/work/fsh-generated/resources/StructureDefinition-EHDSImagingReport.json: line 0, col 0, Info - The element EHDSImagingReport.body.orderInformation.orderReason[x] has a binding, and has multiple types subject to bindings ([http://ehds.eu/fhir/models/StructureDefinition/EHDSObservation, string, http://ehds.eu/fhir/models/StructureDefinition/EHDSCondition, CodeableConcept]). The binding will apply to all the types (BUSINESSRULE)
+/work/fsh-generated/resources/StructureDefinition-EHDSLaboratoryReport.json: line 0, col 0, Info - The element EHDSLaboratoryReport.body.orderInformation.orderReason[x] has a binding, and has multiple types subject to bindings ([http://ehds.eu/fhir/models/StructureDefinition/EHDSObservation, string, http://ehds.eu/fhir/models/StructureDefinition/EHDSCondition, CodeableConcept]). The binding will apply to all the types (BUSINESSRULE)
+
+err = 0, warn = 0, info = 2
+IG Publisher Version: 2.2.7
